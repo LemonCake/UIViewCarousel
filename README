@@ -1,0 +1,43 @@
+UIViewCarousel is a beefed up version of the UIScrollView with pagingEnabled.
+It follows a interface pattern similar to UITableViews and allows for customization of view buffering,
+infinite wrapping among other nice features.
+
+Features
+--------
+- View buffering
+- Customize buffer size
+- Wrapping of views (infinite looping scroll)
+- Built in UIPageControl
+- Delegate pattern interface
+
+Usage
+-----
+
+Much like UITableViewDataSourceDelegate, UIViewCarousel requires to implement just two methods.
+
+- (int)numberOfViewsInViewCarousel:(UIViewCarousel *)viewCarousel; // return the number of views you want to display
+- (UIView *)viewCarousel:(UIViewCarousel *)viewCarousel viewAtIndex:(int)index; // given the index, provide the view
+
+With buffering enabled, UIViewCarousel automatically stores unused views in a deqeue list similar to UITableViews.
+A common pattern to making use of this is grabbing a unused view of the same class and reusing it, similar to 
+dequeing an unused cell with an identifier.
+
+eg.
+
+- (UIView *)viewCarousel:(UIViewCarousel *)viewCarousel viewAtIndex:(int)index {
+  CustomView *view = [_viewCarousel dequeueReuseableViewWithClass[CustomView class]];
+
+  if (view == nil) {
+    view = [[[CustomView alloc] init] autorelease];
+  }
+
+  view.titleLabel.text = @"some text";
+  view.backgroundColor = [UIColor redColor];
+
+  return view;
+}
+
+Simple right? Also, the views you provide to the UIViewCarousel are tagged by index.
+
+You can set various properties of an instance of UIViewCarousel to your liking. You can even turn off buffering all together!
+The header file should be very self explanatory. Happy hacking! :)

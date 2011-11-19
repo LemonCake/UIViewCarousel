@@ -32,7 +32,6 @@
 @property (nonatomic, assign) BOOL showPageControl;
 @property (nonatomic, assign) id<UIViewCarouselDataSource> dataSource;
 @property (nonatomic, assign) BOOL enableWrap;
-@property (nonatomic, assign) BOOL customHackOn;
 @property (nonatomic, assign) int bufferSize;
 @property (nonatomic, retain) UIScrollView *carousel;
 @property (nonatomic, retain) UIPageControl *pageControl;
