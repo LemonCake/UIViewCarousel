@@ -7,11 +7,8 @@
 //
 
 #import "UIViewCarousel.h"
-#import "TemplateController.h"
 #import "NSDictionary+Convenience.h"
 #import <QuartzCore/QuartzCore.h>
-#import "AnalyticsController.h"
-#import "UITrendingItem.h"
 
 @interface UIViewCarousel ()
 
